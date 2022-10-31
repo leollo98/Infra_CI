@@ -8,6 +8,7 @@ module "ecs" {
         weight = 100
       }
     }
+  }
 }
 
 resource "aws_ecs_task_definition" "Go-API" {
