@@ -40,7 +40,7 @@ resource "aws_ecs_task_definition" "Go-API" {
 
 resource "aws_ecs_service" "Go-API" {
   name            = "Go-API"
-  cluster         = module.ecs.ecs_cluster_id
+  cluster         = module.ecs.cluster_id
   task_definition = aws_ecs_task_definition.Go-API.arn
   desired_count   = 3
 
