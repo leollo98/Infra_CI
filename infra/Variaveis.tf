@@ -9,3 +9,7 @@ variable "cargoIAM" {
 variable "ambiante" {
   type = string
 }
+
+variable "imagem" {
+  type = string
+}

@@ -26,10 +26,6 @@ resource "aws_iam_role_policy" "ecs_ecr" {
     Statement = [
       {
         Action = [
-          "ecr:GetAuthorizationToken",
-          "ecr:BatchCheckLayerAvailability",
-          "ecr:GetDownloadUrlForLayer",
-          "ecr:BatchGetImage",
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ]

@@ -1,5 +1,5 @@
 resource "aws_lb" "alb" {
-  name               = "ECS-Django"
+  name               = "ECS-Go"
   security_groups    = [aws_security_group.alb.id]
   subnets            = module.vpc.public_subnets
 }
@@ -15,7 +15,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_lb_target_group" "alvo" {
-  name        = "ECS-Django"
+  name        = "ECS-Go"
   port        = 8000
   protocol    = "HTTP"
   target_type = "ip"

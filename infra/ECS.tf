@@ -11,8 +11,8 @@ module "ecs" {
   ]
 }
 
-resource "aws_ecs_task_definition" "Django-API" {
-  family                   = "Django-API"
+resource "aws_ecs_task_definition" "Go-API" {
+  family                   = "Go-API"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 256
@@ -21,8 +21,8 @@ resource "aws_ecs_task_definition" "Django-API" {
   container_definitions = jsonencode(
     [
       {
-        "name"      = "producao"
-        "image"     = "962752222089.dkr.ecr.us-west-2.amazonaws.com/producao:v1"
+        "name"      = "homolog"
+        "image"     = var.imagem
         "cpu"       = 256
         "memory"    = 512
         "essential" = true
@@ -38,15 +38,15 @@ resource "aws_ecs_task_definition" "Django-API" {
 }
 
 
-resource "aws_ecs_service" "Django-API" {
-  name            = "Django-API"
+resource "aws_ecs_service" "Go-API" {
+  name            = "Go-API"
   cluster         = module.ecs.ecs_cluster_id
-  task_definition = aws_ecs_task_definition.Django-API.arn
+  task_definition = aws_ecs_task_definition.Go-API.arn
   desired_count   = 3
 
   load_balancer {
     target_group_arn = aws_lb_target_group.alvo.arn
-    container_name   = "producao"
+    container_name   = "homolog"
     container_port   = 8000
   }
 
