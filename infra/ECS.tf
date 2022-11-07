@@ -36,19 +36,19 @@ resource "aws_ecs_task_definition" "Go-API" {
           {
             "name"  = "HOST"
             "value" = aws_db_instance.default.address
-          },
+          }
           {
             "name"  = "DBPORT"
             "value" =aws_db_instance.default.port
-          },
+          }
           {
             "name"  = "USER"
             "value" = aws_db_instance.default.username
-          },
+          }
           {
             "name"  = "PASSWORD"
             "value" = "rootroot"
-          },
+          }
           {
             "name"  = "DBNAME"
             "value" = "root"
