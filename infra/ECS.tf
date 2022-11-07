@@ -18,45 +18,45 @@ resource "aws_ecs_task_definition" "Go-API" {
   cpu                      = 256
   memory                   = 512
   execution_role_arn       = aws_iam_role.cargo.arn
-  container_definitions = <<TASK_DEFINITION
+  container_definitions = jsonencode(
     [
       {
-        "name"      : "homolog",
-        "image"     : var.imagem,
-        "cpu"       : 256,
-        "memory"    : 512,
-        "essential" : true,
-        "portMappings" : [
+        "name"      = "homolog"
+        "image"     = var.image
+        "cpu"       = 256
+        "memory"    = 512
+        "essential" = true
+        "portMappings" = [
           {
-            "containerPort" : 8000,
-            "hostPort"      : 8000
+            "containerPort" = 8000
+            "hostPort"      = 8000
           }
-        ],
-        "environment": [
+        ]
+        "environment"= [
           {
-            "name"  : "HOST",
-            "value" : aws_db_instance.default.address
+            "name"  = "HOST"
+            "value" = aws_db_instance.default.address
           },
           {
-            "name"  : "DBPORT",
-            "value" : aws_db_instance.default.port
+            "name"  = "DBPORT"
+            "value" = aws_db_instance.default.port
           },
           {
-            "name"  : "USER",
-            "value" : aws_db_instance.default.username
+            "name"  = "USER"
+            "value" = aws_db_instance.default.username
           },
           {
-            "name"  : "PASSWORD",
-            "value" : "rootroot"
+            "name"  = "PASSWORD"
+            "value" = "rootroot"
           },
           {
-            "name"  : "DBNAME",
-            "value" : "root"
+            "name"  = "DBNAME"
+            "value" = "root"
           }
         ]
       }
     ]
-  TASK_DEFINITION
+  )
 }
 
 
