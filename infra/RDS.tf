@@ -6,4 +6,5 @@ resource "aws_db_instance" "default" {
   username             = "postgres"
   password             = "root"
   skip_final_snapshot  = true
+  publicly_accessible  = true
 }
