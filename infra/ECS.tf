@@ -35,15 +35,15 @@ resource "aws_ecs_task_definition" "Go-API" {
         "environment"= [
           {
             "name"  = "HOST"
-            "value" = aws_db_instance.default.address
+            "value" = "${aws_db_instance.default.address}"
           },
           {
             "name"  = "DBPORT"
-            "value" = aws_db_instance.default.port
+            "value" = "${aws_db_instance.default.port}"
           },
           {
             "name"  = "USER"
-            "value" = aws_db_instance.default.username
+            "value" = "${aws_db_instance.default.username}"
           },
           {
             "name"  = "PASSWORD"
