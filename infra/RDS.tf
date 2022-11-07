@@ -4,7 +4,7 @@ resource "aws_db_instance" "default" {
   engine               = "postgres"
   instance_class       = "db.t3.micro"
   username             = "postgres"
-  password             = "root"
+  password             = "rootroot"
   skip_final_snapshot  = true
   publicly_accessible  = true
 }
