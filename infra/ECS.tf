@@ -47,7 +47,7 @@ resource "aws_ecs_task_definition" "Go-API" {
           },
           {
             "name"  = "PASSWORD"
-            "value" = "root"
+            "value" = "rootroot"
           },
           {
             "name"  = "DBNAME"
