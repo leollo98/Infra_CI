@@ -22,7 +22,7 @@ resource "aws_ecs_task_definition" "Go-API" {
     [
       {
         "name"      = "homolog"
-        "image"     = var.image
+        "image"     = var.imagem
         "cpu"       = 256
         "memory"    = 512
         "essential" = true
