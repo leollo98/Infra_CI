@@ -6,7 +6,7 @@ resource "aws_lb" "alb" {
 
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.alb.arn
-  port              = "8000"
+  port              = "80"
   protocol          = "HTTP"
   default_action {
     type             = "forward"
@@ -16,7 +16,7 @@ resource "aws_lb_listener" "http" {
 
 resource "aws_lb_target_group" "alvo" {
   name        = "ECS-Go"
-  port        = 80
+  port        = 8000
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = module.vpc.vpc_id
