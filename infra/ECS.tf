@@ -69,7 +69,6 @@ resource "aws_ecs_service" "Go-API" {
   cluster         = module.ecs.cluster_id
   task_definition = aws_ecs_task_definition.Go-API.arn
   desired_count   = 1
-  assign_public_ip = true
   load_balancer {
     target_group_arn = aws_lb_target_group.alvo.arn
     container_name   = "homolog"
@@ -79,6 +78,7 @@ resource "aws_ecs_service" "Go-API" {
   network_configuration {
       subnets = module.vpc.private_subnets
       security_groups = [aws_security_group.privado.id]
+      assign_public_ip = true
   }
 
   capacity_provider_strategy {
