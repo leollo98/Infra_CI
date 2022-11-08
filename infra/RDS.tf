@@ -8,5 +8,5 @@ resource "aws_db_instance" "default" {
   skip_final_snapshot  = true
   publicly_accessible  = true
   db_subnet_group_name = module.vpc.database_subnet_group_name
-  vpc_security_group_ids = [aws_security_group.alb.id]
+  vpc_security_group_ids = [aws_security_group.db.id]
 }
