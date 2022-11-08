@@ -16,7 +16,7 @@ resource "aws_lb_listener" "http" {
 
 resource "aws_lb_target_group" "alvo" {
   name        = "ECS-Go"
-  port        = 8000
+  port        = 80
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = module.vpc.vpc_id
