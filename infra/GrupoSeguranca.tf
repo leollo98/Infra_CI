@@ -11,6 +11,14 @@ resource "aws_security_group_rule" "tcp_alb" {
   cidr_blocks       = ["0.0.0.0/0"] #0.0.0.0 - 255.255.255.255
   security_group_id = aws_security_group.alb.id
 }
+  resource "aws_security_group_rule" "tcp_alb" {
+  type              = "ingress"
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"] #0.0.0.0 - 255.255.255.255
+  security_group_id = aws_security_group.alb.id
+}
 
 resource "aws_security_group_rule" "saida_alb" {
   type              = "egress"
