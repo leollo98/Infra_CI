@@ -5,8 +5,8 @@ resource "aws_security_group" "alb" {
 
 resource "aws_security_group_rule" "tcp_alb" {
   type              = "ingress"
-  from_port         = 80
-  to_port           = 80
+  from_port         = 8000
+  to_port           = 8000
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"] #0.0.0.0 - 255.255.255.255
   security_group_id = aws_security_group.alb.id
