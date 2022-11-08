@@ -52,6 +52,10 @@ resource "aws_ecs_task_definition" "Go-API" {
           {
             "name"  = "DBNAME"
             "value" = "root"
+          },
+          {
+            "name"  = "PORT"
+            "value" = "8000"
           }
         ]
       }
